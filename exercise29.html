@@ -82,19 +82,8 @@
                     return y(d.y)
                 })
                 .attr("r", 3)
-                .style("fill", "red")
-            svg.selectAll("dot")
-                .data(data)
-                .enter()
-                .append("text")
-                .attr("x", function(d) {
-                    return x(d.x)
-                })
-                .attr("y", function(d) {
-                    return y(d.y)
-                })
-                .text(function(d, i) {
-                    if (i % 5 == 0) return d.y
+                .style("fill", function(d) {
+                    return d3.scaleLinear().domain([-1, 1]).range(["red", "blue"])(d.y)
                 });
         }
         // Create Random Points

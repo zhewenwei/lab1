@@ -32,6 +32,13 @@
                     .attr("cy", position[1])
                     .attr("r", data.dimensions)
                     .attr("stroke", data.color);
+            } else if (data.shape === 'ellipse') {
+                svg.append("ellipse")
+                    .attr("cx", position[0])
+                    .attr("cy", position[1])
+                    .attr("rx", position[2])
+                    .attr("ry", position[3])
+                    .attr("stroke", data.color);
             }
         })
     </script>
