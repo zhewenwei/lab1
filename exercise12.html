@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+    <script>
+        //Create SVG element
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", 400)
+            .attr("height", 400)
+            .style("border", '1px solid green');
+        d3.csv("exercise12/data.csv", function(data) {
+            const position = eval(data.position);
+            if (data.shape === "line") {
+                svg.append("line")
+                    .attr("x1", position[0])
+                    .attr("x2", position[1])
+                    .attr("y1", position[2])
+                    .attr("y2", position[3])
+                    .attr("stroke", data.color);
+            } else if (data.shape === 'circle') {
+                svg.append("circle")
+                    .attr("cx", position[0])
+                    .attr("cy", position[1])
+                    .attr("r", data.dimensions)
+                    .attr("stroke", data.color);
+            }
+        })
+    </script>
+</body>
+
+</html>

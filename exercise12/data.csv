@@ -1,0 +1,5 @@
+shape,position,dimensions,color
+"line","[100,150,150,100]",0,"blue"
+"line","[150,150,150,100]",0,"red"
+"line","[100,150,150,150]",0,"black"
+"circle","[200,200]",10,"green"
